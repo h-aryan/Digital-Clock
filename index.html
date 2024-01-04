@@ -6,70 +6,68 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Digital Clock</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        @font-face {
-            font-family: 'Orbitron';
-            src: url(Orbitron.ttf);
-        }
-        .time {
-            display: flex;
-            justify-content: center;
-            align-items: center ;
-            height: 100vh;
-            color: #17D4FE;
-            font-size: 60px;
-            font-family: Orbitron;
-            letter-spacing: 7px;
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Digital Clock</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    .time {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #17D4FE;
+      font-size: 60px;
+      font-family: Orbitron;
+      letter-spacing: 7px;
 
-        }
+    }
 
-        body {
-            background: black;
-        }
-    </style>
+    body {
+      background: black;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="Time" class="time"></div>
-    <!--[if lt IE 7]>
+  <div id="Time" class="time"></div>  <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <script>
-        function showTime() {
-            let date = new Date();
-            let h = date.getHours();
-            let m = date.getMinutes();
-            let s = date.getSeconds();
-            let session = "AM";
+  <script>
+    function showTime() {
+      let date = new Date();
+      let h = date.getHours();
+      let m = date.getMinutes();
+      let s = date.getSeconds();
+      let session = "AM";
 
-            if (h == 0) {
-                h = 12;
-                session = "AM";
-            }
-            if (h > 12) {
-                h = h - 12;
-                session = "PM";
-            }
+      if (h == 0) {
+        h = 12;
+        session = "AM";
+      }
+      if (h > 12) {
+        h = h - 12;
+        session = "PM";
+      }
 
-            h = (h < 10) ? "0" + h : h;
-            m = (m < 10) ? "0" + m : m;
-            s = (s < 10) ? "0" + s : s;
+      h = (h < 10) ? "0" + h : h;
+      m = (m < 10) ? "0" + m : m;
+      s = (s < 10) ? "0" + s : s;
 
-            let time = h + ":" + m + ":" + s;
+      let time = h + ":" + m + ":" + s;
 
-            document.getElementById("Time").textContent = time;
+      document.getElementById("Time").textContent = time;
 
-            setTimeout(showTime, 1000);
+      setTimeout(showTime, 1000);
 
-        }
-        showTime();
-    </script>
+    }
+    showTime();
+  </script>
 </body>
 
 </html>
